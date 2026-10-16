@@ -19,3 +19,10 @@ JOIN commandeDetail cd ON c.id_com = cd.id_com
 JOIN plat p ON cd.id_plat = p.id_plat
 GROUP BY c.id_com, c.date, c.remaque
 ORDER BY c.date;
+-- Etape4
+SELECT
+    c.id_client,
+    COALESCE(c.nom, 'PASSAGEE') AS nom_client,
+    cd.id_com
+FROM commande_Client cd
+LEFT JOIN client c ON c.id_client = cd.id_client;
